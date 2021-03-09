@@ -31,6 +31,7 @@ class PersonFactory:
         self.__prototype.id += 1
         return p
 
+# for testing :)
 # if __name__ == '__main__':
 #     pf = PersonFactory()
 #     print(pf.create_person("chris"))
