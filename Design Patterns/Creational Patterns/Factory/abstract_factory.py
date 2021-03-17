@@ -10,12 +10,9 @@ class Tea(HotDrink):
     def consume(self):
         print('This tea is nice but I\'d prefer it with milk')
 
-
 class Coffee(HotDrink):
     def consume(self):
         print('This coffee is delicious')
-
-
 
 class HotDrinkFactory(ABC):
     def prepare(self, amount):
@@ -27,13 +24,10 @@ class TeaFactory(HotDrinkFactory):
         print(f'Put in tea bag, boil water, pour {amount}ml and sugar {sugar} enjoy!')
         return Tea()
 
-
 class CoffeeFactory(HotDrinkFactory):
     def prepare(self, amount):
         print(f'Grind some beans, boil water, pour {amount}ml, enjoy!')
         return Coffee()
-
-
 
 class HotDrinkMachine:
     class AvailableDrink(Enum):  # violates OCP
