@@ -45,6 +45,8 @@ class HotDrinkMachine:
                 factory_name = name + 'Factory'
                 factory_instance = eval(factory_name)()
                 self.factories.append((name, factory_instance))
+                print(self.factories, type(self.factories[-1][-1]))
+
 
     def make_drink(self):
         print('Available drinks:')
