@@ -36,7 +36,7 @@ class ResponsiblePerson:
     if self.age < 18:
       return "too young"
     else:
-      return "drinking"
+      return self.person.drink()
 
   def drink_and_drive(self):
     return "dead"
