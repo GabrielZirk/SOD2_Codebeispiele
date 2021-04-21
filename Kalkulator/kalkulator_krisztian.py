@@ -33,16 +33,21 @@ class Calculator(metaclass=Singleton):      # main class, this has to be initial
         try:
             while True:                         # loop until terminated by user
                 self.get_number()  # read in first number
+                if self.current_result:
+                    self.fact.call_operation()
+                    self.current_second_number = self.current_result
+
                 self.get_operand()              # read in operand
                 self.check_operand()
 
                 if self.current_operand:
                     self.get_number()
                     self.fact.call_operation()
+                    self.current_second_number = self.current_result
                     self.get_operand()
                     self.check_operand()
 
-                self.current_second_number = self.current_result
+
         except ExitLoop:
             print("Bye :)")
             pass
