@@ -32,16 +32,12 @@ class Calculator(metaclass=Singleton):      # main class, this has to be initial
 
         try:
             while True:                         # loop until terminated by user
-
                 self.get_number()  # read in first number
-
                 self.get_operand()              # read in operand
-
                 self.check_operand()
 
                 if self.current_operand:
                     self.get_number()
-
                     self.fact.call_operation()
                     self.get_operand()
                     self.check_operand()
@@ -51,11 +47,11 @@ class Calculator(metaclass=Singleton):      # main class, this has to be initial
             print("Bye :)")
             pass
 
+
     def check_operand(self):
         if self.current_operand == '=':
             self.fact.call_operation()
             self.current_operand = None
-
 
 
     def initialize(self):                   # at start to print the instructions and allowed operands
@@ -65,8 +61,8 @@ class Calculator(metaclass=Singleton):      # main class, this has to be initial
             print(key)
         print(f'\nFür Abbruch jederzeit E eingeben\n')
 
-    def get_number(self):                   # method to read in number, check correct number format
 
+    def get_number(self):                   # method to read in number, check correct number format
         self.current_first_number = self.current_second_number
         while True:                         # loop until correct number format or terminated by user
             current_input = input('Zahl eingeben:\n')
@@ -83,6 +79,7 @@ class Calculator(metaclass=Singleton):      # main class, this has to be initial
                         return
                     except ValueError:
                         print('Zahl darf int oder float sein')              # incorrect format, ask for new input
+
 
     def get_operand(self):                  # method to read in operand, check if allowed operand
         while True:                         # loop until allowed operand input or terminated by user
@@ -155,7 +152,6 @@ class OperationFactory:     # called as Calculator is initialized, this class wi
         for k, v in self.dict_operations.items():
             if Calculator().current_operand in k:
                 return v.do_operation()
-
 
 
 if __name__ == '__main__':
