@@ -37,6 +37,7 @@ class BankAccountCommand(Command):
         self.amount = amount
         self.action = action
         self.account = account
+        self.success = None
 
 
     class Action(Enum):
