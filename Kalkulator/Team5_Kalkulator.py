@@ -38,25 +38,19 @@ class Calculator(metaclass=Singleton):      # main class, this has to be initial
                     self.current_second_number = self.current_result
 
                 self.get_operand()              # read in operand
-                self.check_operand()
+                self.fact.call_operation()
 
                 if self.current_operand:
                     self.get_number()
                     self.fact.call_operation()
                     self.current_second_number = self.current_result
                     self.get_operand()
-                    self.check_operand()
+                    self.fact.call_operation()
 
 
         except ExitLoop:
             print("Bye :)")
             pass
-
-
-    def check_operand(self):
-        if self.current_operand == '=':
-            self.fact.call_operation()
-            self.current_operand = None
 
 
     def initialize(self):                   # at start to print the instructions and allowed operands
@@ -128,6 +122,7 @@ class Ergebnis(Operation):
     def do_operation(self):
         print(f'Ergebnis:\n{Calculator().current_result}')
         Calculator().current_result = 0
+        Calculator().current_operand = None
 
 
 class OperationFactory:     # called as Calculator is initialized, this class will initialize and execute the ops
